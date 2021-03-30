@@ -10,7 +10,7 @@ public class LotteriaSearchMain {
 		do {
 			System.out.println("검색할 상품을 입력하세요:");
 			String name = input.next();
-			boolean searchResult = sv.searchMember(name);
+			boolean searchResult = sv.searchMember(name);  //searchMember메소드의 리턴값이 boolean
 			if(searchResult)  break;
 			System.out.println("해당 상품이 없습니다.");
 		}while(true);

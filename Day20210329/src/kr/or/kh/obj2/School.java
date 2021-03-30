@@ -5,7 +5,7 @@ public class School {
 	protected int eng;
 	protected int math;
 	
-	public School() {   //생성자 함수는 상속이 되지 않는다.
+	public School() {   //생성자 함수는 상속이 되지 않는다. 하위 클래스에서 super()키워드로 생성자 함수를 상속받아야한다.
 		this(0,0,0);
 		/*kor=0;
 		eng=0;

@@ -6,7 +6,7 @@ public class ParameterTest {
 		Data d = new Data();
 		d.x = 10;
 		System.out.println("main:x=" + d.x);
-		change(d.x);
+		change(d.x); //change메소드 
 		System.out.println("After change(d.x)");
 		System.out.println("main:x=" + d.x);
 	}
@@ -16,6 +16,7 @@ public class ParameterTest {
 	public static void change(int x) {
 		x = 1000;
 		System.out.println("change(): x="+x);
+		return;
 	}
 
 }

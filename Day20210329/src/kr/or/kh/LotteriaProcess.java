@@ -10,7 +10,7 @@ public class LotteriaProcess {
 		lotteria[3] = new Lotteria("롱스틱",2400,2,4800);
 		lotteria[4] = new Lotteria("아이스크림",1000,2,2000);
 	}
-	boolean searchMember(String name) {
+	boolean searchMember(String name) {   //return값이 boolean
 		boolean searchResult = false;
 		for(int i=0; i<lotteria.length; i++) {
 			if(lotteria[i].getSangpumName().equals(name)) {

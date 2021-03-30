@@ -1,5 +1,7 @@
 package kr.or.kh.obj2;
 
+import java.util.Scanner;
+
 public class ManSchool extends School {
 	//국어 영어 수학에 대한 것은 부모로부터 상속 받음
 	protected int gisul;  //man school 특수 기술 과목 추가. 총 4과목 
@@ -24,14 +26,33 @@ public class ManSchool extends School {
 
 	@Override
 	public String toString() {
-		return super.toString()+ " ManSchool [gisul=" + gisul + "]"; //부모의 toString과 함께 출력 
+		return super.toString()+ " ManSchool plus [gisul=" + gisul + "]"; //부모의 toString과 함께 출력 
 	}
 
-	public static void main(String[] args) {
-		ManSchool manSchool = new ManSchool(80,70,60,80); //(초기화)
+	/*public static void main(String[] args) {
+		ManSchool manSchool = new ManSchool();
+		Scanner input = new Scanner(System.in);
+		System.out.println("국어 입력");
+		int kor = input.nextInt();
+		System.out.println("영어 입력");
+		int eng = input.nextInt();
+		System.out.println("국어 입력");
+		int math = input.nextInt();
+		System.out.println("기술 입력");
+		int gisul = input.nextInt();
+		manSchool.setKor(kor);
+		manSchool.setEng(eng);
+		manSchool.setMath(math);
+		manSchool.setGisul(gisul);
+		System.out.println(manSchool.toString());*/
+		
+		
+		
+		/*ManSchool manSchool = new ManSchool(80,70,60,80); //(초기화)
 		//manSchool.setGisul(80); //(대입)
 		//System.out.println(manSchool+"+"+manSchool.gisul);  //toString 해놓았기 때문에 주소값이 아니라 재정의한 toString이 출력된다.
-		System.out.println(manSchool); //(manSchool(+toString))이 숨어있다. 
 		System.out.println(manSchool.getKor()); //하나씩 꺼내기도 가능. 근데 넘 불편 그래서 toString이 존재.
-	}
+		System.out.println(manSchool); //(manSchool(+toString))이 숨어있다. 
+		
+	}*/
 }

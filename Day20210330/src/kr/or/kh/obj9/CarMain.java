@@ -12,8 +12,8 @@ public class CarMain {
 			System.out.println("1.현대 자동차 2. 대우 자동차");
 			int number = input.nextInt();
 			if(number==1) {
-				hc1.engine.kind="현대엔진";
-				hc1.radio.kind="주파수 3";
+				hc1.engine.kind="현대에엔진";
+				hc1.radio.kind="주파수 361.2";
 				hc1.carName="소나타";
 				hc1.airCon.kind="현대 에어컨";
 				hc1.door.window=5;

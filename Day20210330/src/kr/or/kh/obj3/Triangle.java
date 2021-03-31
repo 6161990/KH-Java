@@ -13,7 +13,7 @@ public class Triangle extends Point2D {
 		point[2] = new Point2D(50,20);
 	}
 	
-	public Triangle(Point2D[] p) {
+	public Triangle(Point2D[] p) { //Point2D[] p = new Point[3]; //이거는 밖에서 만들어야하는것 
 		this.point=p;
 	}
 
@@ -25,6 +25,17 @@ public class Triangle extends Point2D {
 	public static void main(String[] args) {
 		Triangle triangle = new Triangle();
 		System.out.println(triangle.toString());
+		
+		
+		
+		//여기서 이렇게 만들어야한다! 객체배열은 밖에서 따로 생성된다! 
+		Point2D[] point = new Point2D[3];
+		point[0] = new Point2D(10,10);
+		point[1] = new Point2D(20,20);
+		point[2] = new Point2D(30,30);
+		Triangle triangle2 = new Triangle(point);
+		System.out.println(triangle2.toString());
+		
 	}
 	
 	

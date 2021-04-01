@@ -1,16 +1,49 @@
-package kr.or.kh.instance;
+package kr.or.kh.obj2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class HaksaFunction { //클래스의 시작 
-	//static을 없앰. 스태틱은 클래스 이름으로 접근하는 애들이고
-	//여기서는 인스턴스로 접근하기 때문에 static이 아님.
+//메소드에서 클래스로 발전시키기 
+//파라미터 제거 
+//변수 제거 
+public class Haksa {
+	private int cnt; //인스턴스 변수 
+	private String age;
+	private String name;
+	private String studentNum;
+	private String subject;
+	private String part;
+	private String object;
+	private String nameSearch;
+	private String nameDelete;
+	private String nameUpdate;
+	private String commit;
+	public static Scanner input; //클래스변수 
+	public static ArrayList<HashMap<String, String>> haksaList; //클래스 변수 
 	
-	public void register(int cnt, Scanner input, ArrayList<HashMap<String, String>> haksaList) { //등록 함수 시작
-		//등록함수 ,  외부에서 들어오는 cnt, input, haksList를 함수의 파라미터로 받는다. 
-		if(cnt==1) { //등록 메뉴 시작 
+	public Haksa() {
+		cnt=0;
+		age= null;  //인스턴스 변수는 생성자 함수에서 초기화, 물론 컴파일러가 초기화하지만 직접 입력해보기
+		name =null;
+		studentNum =null;
+		subject = null;
+		part = null;
+		object = null;
+		nameSearch = null;
+		nameDelete = null;
+		nameUpdate = null;
+		commit= null;
+	}
+	
+	static {
+		input = new Scanner(System.in);
+		haksaList = new ArrayList<HashMap<String, String>>();
+	}
+	
+	public void register() { //등록 함수 시작
+		
+	
 			System.out.println("등록");
 			System.out.println("======메뉴 선택======");
 			System.out.println("1. 학생");
@@ -22,11 +55,11 @@ public class HaksaFunction { //클래스의 시작
 			if(cnt==1) { //학생시작
 				HashMap<String, String> haksaHash = new HashMap<String, String>();
 				System.out.println("나이: ");
-				String age = input.next();
+				age = input.next();
 				System.out.println("이름: ");
-				String name = input.next();
+				name = input.next();
 				System.out.println("학번: ");
-				String studentNum = input.next();
+				studentNum = input.next();
 				haksaHash.put("age", age);   //put 등록 
 				haksaHash.put("name", name);
 				haksaHash.put("studentNum", studentNum);
@@ -38,11 +71,11 @@ public class HaksaFunction { //클래스의 시작
 			else if(cnt==2) { //교수의 시작
 				HashMap<String, String> haksaHash = new HashMap<String, String>();
 				System.out.println("나이: ");
-				String age = input.next();
+				age = input.next();
 				System.out.println("이름: ");
-				String name = input.next();
+				name = input.next();
 				System.out.println("담당 과목: ");
-				String subject = input.next();
+				subject = input.next();
 				haksaHash.put("age", age);
 				haksaHash.put("name", name);
 				haksaHash.put("subject", subject);
@@ -54,11 +87,11 @@ public class HaksaFunction { //클래스의 시작
 			else if(cnt==3) { //관리자의 시작
 				HashMap<String, String> haksaHash = new HashMap<String, String>();
 				System.out.println("나이: ");
-				String age = input.next();
+				age = input.next();
 				System.out.println("이름: ");
-				String name = input.next();
+				name = input.next();
 				System.out.println("담당 부서: ");
-				String part = input.next();
+				part = input.next();
 				haksaHash.put("age",age);
 				haksaHash.put("name",name);
 				haksaHash.put("part",part);
@@ -67,16 +100,16 @@ public class HaksaFunction { //클래스의 시작
 				System.out.println(name+"님이 "+ part +" 부서에 등록되었습니다.");
 
 			}//관리자의 끝
-		}// 등록 메뉴 끝 ! 	
+		
 	
 	}//등록 함수의 끝
 	
-	public void search(Scanner input, ArrayList<HashMap<String, String>> haksaList ) { //검색함수시작
-		String object="";
-		String nameSearch = "";
+	public void search() { //검색함수시작
 		System.out.println("찾을 이름을 입력해주세요");
 		System.out.println("이름 : ");
-		String name = input.next();
+		name = input.next();
+		object="";
+		nameSearch = "";
 		for(int i=0; i<haksaList.size(); i++) { //반복문시작
 			HashMap<String, String> haksaHash = haksaList.get(i);
 			object = haksaHash.get("object");
@@ -105,12 +138,12 @@ public class HaksaFunction { //클래스의 시작
     } //반복문 끝
 	
 	}//검색함수 끝
-	public void delete(Scanner input, ArrayList<HashMap<String, String>> haksaList) { //삭제함수
-		String nameDelete ="";
-		String object = "";
+	public void delete() { //삭제함수
 		System.out.println("삭제할 이름을 입력하세요.");
 		System.out.print("이름 : ");
-		String name = input.next();
+		name = input.next();
+		nameDelete ="";
+		object = "";
 		for(int i=0; i<haksaList.size();i++) { // 반복문 시작 
 			HashMap<String, String> haksaHash = haksaList.get(i);
 			object = haksaHash.get("object");
@@ -133,11 +166,11 @@ public class HaksaFunction { //클래스의 시작
 		}//반복문 끝
 		System.out.println(name+"님을 삭제하였습니다.");
 	}
-	public void list(ArrayList<HashMap<String, String>> haksaList) { //전체 출력함수 시작 
+	public void list() { //전체 출력함수 시작 
 		System.out.println("=====전체출력======");
 		for(int i=0; i<haksaList.size(); i++) {//반복문 시작
 			HashMap<String,String> haksaHash = haksaList.get(i);
-			String object = haksaHash.get("object");
+			object = haksaHash.get("object");
 			if(object.equals("학생")) { //학생 전체출력 시작
 				System.out.print("[학생부] 이름: ");
 				System.out.print(haksaHash.get("name")+"\t");
@@ -165,13 +198,13 @@ public class HaksaFunction { //클래스의 시작
 			}//관리자 전체출력 끝
 		}//반복문 끝
 	}//전체 출력의 끝
-	public String update(Scanner input, ArrayList<HashMap<String, String>> haksaList) {  //정보 수정 함수 
+	public String update() {  //정보 수정 함수 
 		System.out.println("기존에 등록했던 이름을 입력하세요.");
 		System.out.println("이름: ");
-		String name =input.next();
-		String object= "";
-		String nameUpdate="";
-		String commit="";
+		name =input.next();
+		object= "";
+		nameUpdate="";
+		commit="";
 		for(int i=0; i<haksaList.size(); i++) { //반복문 시작
 			HashMap<String, String> haksaHash = haksaList.get(i);
 			object = haksaHash.get("object");
@@ -187,11 +220,11 @@ public class HaksaFunction { //클래스의 시작
 					if(commit.equals("yes")|| commit.equals("YES")) { //학생 수정 최종시작
 						haksaHash = new HashMap<String, String>();							
 						System.out.println("변경할 나이: ");
-						String age= input.next();
+						age= input.next();
 						System.out.println("변경할 이름: ");
 						name = input.next();
 						System.out.println("변경할 학번: ");
-						String studentNum=input.next();
+						studentNum=input.next();
 						haksaHash.put("age", age);
 						haksaHash.put("name", name);
 						haksaHash.put("studentNum", studentNum);
@@ -216,11 +249,11 @@ public class HaksaFunction { //클래스의 시작
 						if(commit.equals("yes")|| commit.equals("YES")) {//교수 수정 최종 시작
 							haksaHash = new HashMap<String, String>();							
 							System.out.println("변경할 나이: ");
-							String age= input.next();
+							age= input.next();
 							System.out.println("변경할 이름: ");
 							name = input.next();
 							System.out.println("변경할 담당과목: ");
-							String subject = input.next();
+							subject = input.next();
 							haksaHash.put("age", age);
 							haksaHash.put("name", name);
 							haksaHash.put("subject", subject);
@@ -245,11 +278,11 @@ public class HaksaFunction { //클래스의 시작
 						if(commit.equals("yes")|| commit.equals("YES")) { //관리자 최종 수정 시작
 							haksaHash = new HashMap<String, String>();							
 							System.out.println("변경할 나이: ");
-							String age= input.next();
+							age= input.next();
 							System.out.println("변경할 이름: ");
 							name = input.next();
 							System.out.println("변경할 담당부서: ");
-							String part = input.next();
+							part = input.next();
 							haksaHash.put("age", age);
 							haksaHash.put("name", name);
 							haksaHash.put("subject", part);
@@ -265,4 +298,4 @@ public class HaksaFunction { //클래스의 시작
 	}//반복문의 끝
 		return commit;
 	}//정보 수정 함수의 전체 의 끝 
-}// 클래스의 끝
+}

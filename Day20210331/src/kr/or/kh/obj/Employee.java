@@ -5,7 +5,7 @@ public class Employee extends Person {
 	int x;
 	
 	public Employee() {
-		this(null, 0);
+		this(null, 500);
 	}
 
 	public Employee(String department, int x) {

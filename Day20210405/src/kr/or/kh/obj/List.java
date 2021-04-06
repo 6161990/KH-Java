@@ -53,4 +53,24 @@ public class List extends Haksa {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public HashMap<String, String> SearchProcess(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void updateStudent(HashMap<String, String> haksaHash, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateProfessor(HashMap<String, String> haksaHash, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateManager(HashMap<String, String> haksaHash, int i) {
+		// TODO Auto-generated method stub
+		
+	}
 }

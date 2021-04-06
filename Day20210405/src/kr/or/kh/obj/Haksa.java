@@ -177,4 +177,8 @@ public abstract class Haksa {
 	public abstract void studentDelete(int i);
 	public abstract void professorDelete(int i);
 	public abstract void managerDelete(int i);
+	public abstract HashMap<String, String> SearchProcess(int i);
+	public abstract void updateStudent(HashMap<String, String> haksaHash, int i);
+	public abstract void updateProfessor(HashMap<String, String> haksaHash, int i);
+	public abstract void updateManager(HashMap<String, String> haksaHash, int i);
 }

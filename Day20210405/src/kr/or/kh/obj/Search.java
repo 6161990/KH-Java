@@ -10,11 +10,14 @@ public class Search extends Haksa{
 	public void Search() {
 		nameSearch=null;
 	}
-	
+	public HashMap<String, String> SearchProcess(int i) {
+		HashMap<String,String> haksaHash = Register.haksaList.get(i);
+		return haksaHash;
+	}
 	public void search() {//검색함수의시작
 		 searchMenu(); //함수를 실행하고 돌아옴 
 	     for(int i=0;i<Register.haksaList.size();i++) {//반복문시작
-	        HashMap<String,String> haksaHash = Register.haksaList.get(i);
+	    	 HashMap<String, String> haksaHash= SearchProcess(i);
 	         object = haksaHash.get("object");
 	         nameSearch = haksaHash.get("name");
 	         if(object.equals("학생")) {//학생찾기시작
@@ -64,6 +67,21 @@ public class Search extends Haksa{
 
 	@Override
 	public void managerDelete(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateStudent(HashMap<String, String> haksaHash, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateProfessor(HashMap<String, String> haksaHash, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateManager(HashMap<String, String> haksaHash, int i) {
 		// TODO Auto-generated method stub
 		
 	}

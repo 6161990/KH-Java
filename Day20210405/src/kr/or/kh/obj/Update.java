@@ -9,7 +9,30 @@ public class Update extends Haksa {
 	public Update() {
 	      nameUpdate=null;
 	}
-	
+	@Override
+	public void updateStudent(HashMap<String, String> haksaHash, int i) {
+		  haksaHash.put("age", age);
+          haksaHash.put("name", name);
+          haksaHash.put("studentNum", studentNum); 
+          haksaHash.put("object", "학생");
+          Register.haksaList.set(i, haksaHash);
+	}
+	@Override
+	public void updateProfessor(HashMap<String, String> haksaHash, int i) {
+		  haksaHash.put("age", age);
+          haksaHash.put("name", name);
+          haksaHash.put("subject", subject); 
+          haksaHash.put("object", "교수");
+          Register. haksaList.set(i, haksaHash);
+	}
+	@Override
+	public void updateManager(HashMap<String, String> haksaHash, int i) {
+		haksaHash.put("age", age);
+        haksaHash.put("name", name);
+        haksaHash.put("part", part); 
+        haksaHash.put("object", "관리자");
+        Register.haksaList.set(i, haksaHash);
+	}
     public String update() {//수정의시작
 	     
     		updateMenu();
@@ -26,11 +49,7 @@ public class Update extends Haksa {
 	                 if(commit.equals("yes")||commit.equals("YES")) {//학생수정최종시작
 	                    haksaHash = new HashMap<String,String>();
 	                    updateRegister(1);
-	                    haksaHash.put("age", age);
-	                    haksaHash.put("name", name);
-	                    haksaHash.put("studentNum", studentNum); 
-	                    haksaHash.put("object", "학생");
-	                    Register.haksaList.set(i, haksaHash);
+	                    updateStudent(haksaHash,i);
 	                    updateDisplay(1);
 	                 }//학생수정최종끝
 	                 else {//학생수정취소의시작
@@ -46,11 +65,7 @@ public class Update extends Haksa {
 	                 if(commit.equals("yes")||commit.equals("YES")) {//교수최종수정
 	                    haksaHash = new HashMap<String,String>();
 	                    updateRegister(2);
-	                    haksaHash.put("age", age);
-	                    haksaHash.put("name", name);
-	                    haksaHash.put("subject", subject); 
-	                    haksaHash.put("object", "교수");
-	                    Register. haksaList.set(i, haksaHash);
+	                    updateProfessor(haksaHash,i);
 	                    updateDisplay(2);
 	              }//교수수정의끝
 	                 else {//교수수정취소시작
@@ -60,17 +75,13 @@ public class Update extends Haksa {
 	           }//교수수정끝
 	           else if(object.equals("관리자")) {//관리자수정시작
 	              if(name.equals(nameUpdate)) {//관리자이름같으면시작
-	            	  updateConfirmDisplay(2,haksaHash);
+	            	  updateConfirmDisplay(3,haksaHash);
 	            	  updateConfirmMenu();
 	                
 	                 if(commit.equals("yes")||commit.equals("YES")) {//관리자수정최종수정
 	                    haksaHash = new HashMap<String,String>();
 	                    updateRegister(2);
-	                    haksaHash.put("age", age);
-	                    haksaHash.put("name", name);
-	                    haksaHash.put("part", part); 
-	                    haksaHash.put("object", "관리자");
-	                    Register.haksaList.set(i, haksaHash);
+	                    updateManager(haksaHash,i);
 	                    updateDisplay(3);
 	              }//관리자수정최종끝
 	                 else {//관리자수정취소시작
@@ -116,6 +127,12 @@ public class Update extends Haksa {
 	public void managerDelete(int i) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public HashMap<String, String> SearchProcess(int i) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

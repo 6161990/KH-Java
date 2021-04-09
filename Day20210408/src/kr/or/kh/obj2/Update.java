@@ -1,12 +1,10 @@
 package kr.or.kh.obj2;
 
-import java.util.HashMap;
 
 public class Update {
 	
 	private String name;
 	private String object;
-	private String nameUpdate;
 	private String commit;
 	private String age;
 	private String studentNum;
@@ -15,69 +13,6 @@ public class Update {
 	
 	public Update() {}
 
-	
-	public String update() {//수정의시작
-	     
-		updateMenu();
-
-        for(int i=0;i<Register.haksaList.size();i++) {//반복문의시작
-           HashMap<String,String> haksaHash = Register.haksaList.get(i);
-           object=haksaHash.get("object");
-           nameUpdate = haksaHash.get("name");
-           if(object.equals("학생")) {//학생수정시작
-              if(name.equals(nameUpdate)) {//학생이같으면시작
-            	 updateConfirmDisplay(1,haksaHash);
-            	 updateConfirmMenu();
-                
-                 if(commit.equals("yes")||commit.equals("YES")) {//학생수정최종시작
-                    haksaHash = new HashMap<String,String>();
-                    updateRegister(1);
-                    updateStudent(haksaHash,i);
-                    updateDisplay(1);
-                 }//학생수정최종끝
-                 else {//학생수정취소의시작
-                    return commit;
-                 }//학생수정취소의끝
-              }//학생이같으면끝                 
-           }//학생수정끝
-           else if(object.equals("교수")) {//교수수정시작           
-              if(name.equals(nameUpdate)) {//교수이름같으면시작
-            	  updateConfirmDisplay(2,haksaHash);
-            	  updateConfirmMenu();
-               
-                 if(commit.equals("yes")||commit.equals("YES")) {//교수최종수정
-                    haksaHash = new HashMap<String,String>();
-                    updateRegister(2);
-                    updateProfessor(haksaHash,i);
-                    updateDisplay(2);
-              }//교수수정의끝
-                 else {//교수수정취소시작
-                 return commit;
-              }//교수수정취소끝
-             }//교수이름같으면끝
-           }//교수수정끝
-           else if(object.equals("관리자")) {//관리자수정시작
-              if(name.equals(nameUpdate)) {//관리자이름같으면시작
-            	  updateConfirmDisplay(3,haksaHash);
-            	  updateConfirmMenu();
-                
-                 if(commit.equals("yes")||commit.equals("YES")) {//관리자수정최종수정
-                    haksaHash = new HashMap<String,String>();
-                    updateRegister(3);
-                    updateManager(haksaHash,i);
-                    updateDisplay(3);
-              }//관리자수정최종끝
-                 else {//관리자수정취소시작
-                 return commit;
-              }//관리자수정취소끝
-             }//관리자이름같으면끝
-           }//관리자수정끝
-        }//반복문의끝
-      return commit;
-     }//수정의끝
-	
-	
-
 	public void updateMenu() {
 		 System.out.println("수정할이름을입력하세요.");
 	     System.out.println("이름:");
@@ -85,24 +20,82 @@ public class Update {
 	     if(name == null || name == "") {
 	    	 System.out.println("이름이 null이거나 공백입니다.");
 	     }
+	     System.out.println("학생, 교수, 관리자 중 입력하세요.");
+	     object=Register.input.next();
+	     if(object==null || object=="") {
+	    	 System.out.println("null이거나 공백입니다.");
+	     }
 	}
 	
-	public void updateConfirmDisplay(int cnt, HashMap<String,String> haksaHash) {
-		if(cnt ==1) {
-			System.out.print("나이:"+haksaHash.get("age")+"\t");
-			System.out.print("이름:"+haksaHash.get("name")+"\t");
-			System.out.print("학번:"+haksaHash.get("studentNum")+"\n");
-		} else if (cnt==2) {
-			 System.out.print("나이:"+haksaHash.get("age")+"\t");
-            System.out.print("이름:"+haksaHash.get("name")+"\t");
-            System.out.print("과목:"+haksaHash.get("subject")+"\n");
-		} else if(cnt ==3) { 
-			 System.out.print("나이:"+haksaHash.get("age")+"\t");
-            System.out.print("이름:"+haksaHash.get("name")+"\t");
-            System.out.print("부서:"+haksaHash.get("part")+"\n");
+	public void update() {//수정의시작
+	     
+		updateMenu();
+		for(int i = 0; i<Register.studentList.size(); i++) {
+			StudentDTO student = Register.studentList.get(i);
+			if(object.equals(student.getObject())) {
+				if(name.equals(student.getName())) {
+					updateConfirmDisplay(student);
+					updateConfirmMenu();
+					if(commit.equals("yes")||commit.equals("YES")) {
+						student = new StudentDTO();
+						updateRegister(1);
+						updateStudent(student,i);
+						updateDisplay(1);
+					}
+				}
+			}
 		}
-		
+		for(int i=0; i<Register.professorList.size(); i++) {
+			ProfessorDTO professor = Register.professorList.get(i);
+			if(object.equals(professor.getObject())) {
+				if(name.equals(professor.getName())) {
+					updateConfirmDisplay(professor);
+					updateConfirmMenu();
+					if(commit.equals("yes")||commit.equals("YES")) {
+						professor = new ProfessorDTO();
+						updateRegister(2);
+						updateProfessor(professor,i);
+						updateDisplay(2);
+					}
+				}
+			}
+		}
+		for(int i=0; i<Register.manageList.size(); i++) {
+			ManageDTO manage = Register.manageList.get(i);
+			if(object.equals(manage.getObject())) {
+				if(name.equals(manage.getName())) {
+					updateConfirmDisplay(manage);
+					updateConfirmMenu();
+					if(commit.equals("yes")||commit.equals("YES")) {
+						manage = new ManageDTO();
+						updateRegister(3);
+						updateManage(manage,i);
+						updateDisplay(1);
+					}
+				}
+			}
+		}
+
+     }//수정의끝
+	
+
+	public void updateConfirmDisplay(StudentDTO student) {
+		System.out.print("나이:"+student.getAge()+"\t");
+		System.out.print("이름:"+student.getName()+"\t");
+		System.out.print("학번:"+student.getStudentNum()+"\n");
 	}
+	public void updateConfirmDisplay(ProfessorDTO professor) {
+		System.out.print("나이:"+professor.getAge()+"\t");
+		System.out.print("이름:"+professor.getName()+"\t");
+		System.out.print("과목:"+professor.getSubject()+"\n");
+	}
+	public void updateConfirmDisplay(ManageDTO manage) {
+		System.out.print("나이:"+manage.getAge()+"\t");
+		System.out.print("이름:"+manage.getName()+"\t");
+		System.out.print("관리자:"+manage.getPart()+"\n");
+	}
+		 
+	
 	
 	public void updateConfirmMenu() {
 		 System.out.println("변경하기전내용입니다.수정할까요yes/no");
@@ -112,26 +105,26 @@ public class Update {
 	     }
 	}
 	
-	public void updateStudent(HashMap<String, String> haksaHash, int i) {
-	    haksaHash.put("age", age);
-        haksaHash.put("name", name);
-        haksaHash.put("studentNum", studentNum); 
-        haksaHash.put("object", "학생");
-        Register.haksaList.set(i, haksaHash);
+	public void updateStudent(StudentDTO student, int i) {
+		student.setAge(age);
+		student.setName(name);
+		student.setStudentNum(studentNum);
+        student.setObject("학생");
+        Register.studentList.set(i, student);
 	}
-	public void updateProfessor(HashMap<String, String> haksaHash, int i) {
-		haksaHash.put("age", age);
-        haksaHash.put("name", name);
-        haksaHash.put("subject", subject); 
-        haksaHash.put("object", "교수");
-        Register. haksaList.set(i, haksaHash);
+	public void updateProfessor(ProfessorDTO professor, int i) {
+		professor.setAge(age);
+		professor.setName(name);
+		professor.setSubject(subject);
+		professor.setObject("교수");
+        Register.professorList.set(i, professor);
 	}
-	public void updateManager(HashMap<String, String> haksaHash, int i) {
-		haksaHash.put("age", age);
-        haksaHash.put("name", name);
-        haksaHash.put("part", part); 
-        haksaHash.put("object", "관리자");
-        Register.haksaList.set(i, haksaHash);
+	public void updateManage(ManageDTO manage, int i) {
+		manage.setAge(age);
+		manage.setName(name);
+		manage.setPart(part);
+		manage.setObject("관리자");
+        Register.manageList.set(i, manage);
 	}
 	
 	public void updateAgeName() {

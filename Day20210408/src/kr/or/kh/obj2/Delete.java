@@ -1,59 +1,82 @@
 package kr.or.kh.obj2;
 
-import java.util.HashMap;
 
 public class Delete {
 	
-	private String name;
 	private String object;
 	private String nameDelete;
 
 	public Delete() {}
 	
-	public void delete() {//삭제함수의시작
- 		  deleteMenu();
- 		
-	      for(int i=0;i<Register.haksaList.size();i++) {//반복문시작
-	         HashMap<String,String> haksaHash = Register.haksaList.get(i);
-	         object = haksaHash.get("object");
-	         nameDelete = haksaHash.get("name");
-	         if(object.equals("학생")) {//학생삭제
-	           if(name.equals(nameDelete)) {//학생이름삭제
-	             studentDelete(i);    
-	           }//학생이름삭제
-	         }//학생삭제
-	         else if(object.equals("교수")) {//교수삭제
-	           if(name.equals(nameDelete)) {//교수이름삭제
-	              professorDelete(i);        
-	            }//교수이름삭제
-	         }//교수삭제
-	         else if(object.equals("관리자")) {//관리자삭제
-	           if(name.equals(nameDelete)) {//관리자이름삭제
-	             managerDelete(i);
-	           }//관리자이름삭제
-	         }//관리자삭제
-	      }//반복문끝
-	         
-	      deleteDisplay();
-	         
-	 }//삭제함수의끝
-
+	
 	 public void deleteMenu() {
 		 System.out.println("삭제할사람의 이름을 입력해 주세요.");
 	     System.out.print("이름 : ");
-	     name = Register.input.next();
+	     nameDelete = Register.input.next();
+	     if(nameDelete==null || nameDelete=="") {
+	    	 System.out.println("null이거나 공백입니다.");
+	     }
+	     System.out.println("학생, 교수, 관리자 중 입력하세요.");
+	     object=Register.input.next();
+	     if(object==null || object=="") {
+	    	 System.out.println("null이거나 공백입니다.");
+	     }
 	 }
 	
-	 public void studentDelete(int i) {
-		 Register.haksaList.remove(i);    
+	public void delete() {//삭제함수의시작
+ 		  deleteMenu();
+ 		  if(object.equals("학생")) {
+	 		  for(int i=0; i<Register.studentList.size(); i++) {
+	 			  StudentDTO student = Register.studentList.get(i);
+	 			  if(nameDelete.equals(student.getName())) {
+	 				 studentDelete(i,student);
+	 				 
+	 			  }
+	 		  }
+ 		  }  
+ 		  
+ 		  else if(object.equals("교수")) {
+ 			  for(int i=0; i<Register.studentList.size(); i++) {
+ 				  ProfessorDTO professor = Register.professorList.get(i);
+ 				  if(nameDelete.equals(professor.getName())) {
+ 					  professorDelete(i,professor);
+ 				  }
+ 			  }
+ 		  }
+ 		  
+ 		  else if(object.equals("관리자")) {
+ 			  for(int i=0; i<Register.manageList.size(); i++) {
+ 				  ManageDTO manage = Register.manageList.get(i);
+ 				 if(nameDelete.equals(manage.getName())) {
+ 					 manageDelete(i, manage);
+				  }
+ 				 
+ 			  }
+ 		  }
+ 		  
+    }
+	
+	
+	 public void studentDelete(int i, StudentDTO student) {
+		 Register.studentList.remove(i);  
+		 deleteDisplay(student);
 	 }
-	 public void professorDelete(int i) {
-		 Register.haksaList.remove(i);    
+	 public void professorDelete(int i, ProfessorDTO professor) {
+		 Register.professorList.remove(i);  
+		 deleteDisplay(professor);
 	 }
-	 public void managerDelete(int i) {
-		 Register.haksaList.remove(i);    
+	 public void manageDelete(int i, ManageDTO manage) {
+		 Register.manageList.remove(i);
+		 deleteDisplay(manage);
 	 }
-	 public void deleteDisplay() {
-			System.out.println(name+"님 삭제하였습니다.");    
+	 
+	 public void deleteDisplay(StudentDTO student) {
+			System.out.println(student.getName()+"님 삭제하였습니다.");    
+	 }
+	 public void deleteDisplay(ProfessorDTO professor) {
+			System.out.println(professor.getName()+"님 삭제하였습니다.");    
+	 }
+	 public void deleteDisplay(ManageDTO manage) {
+			System.out.println(manage.getName()+"님 삭제하였습니다.");    
 	 }
 }

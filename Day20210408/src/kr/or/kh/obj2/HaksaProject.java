@@ -7,14 +7,11 @@ package kr.or.kh.obj2;
 //HaksaProject 내에서 Haksa 인스턴스 제거, 그 자리에 만든 5개의 객체들 생성
 //학생, 교수, 관리자 클래스 따로 생성 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class HaksaProject {
 
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+	
 		
 		//객체들
 		Register registerObj = new Register();
@@ -33,7 +30,7 @@ public class HaksaProject {
 		System.out.println("-------------------");
 		System.out.println("0.종료");
 		System.out.println("번호를 선택해주세요...");
-		int cnt = input.nextInt();
+		int cnt = Register.input.nextInt();
 		if (cnt < 0 || cnt > 5) {
 			System.out.println("음수이거나 5 이상이면 에러입니다. 메뉴 중에 선택하세요.");
 		}
@@ -48,7 +45,7 @@ public class HaksaProject {
 			searchObj.search();
 
 		System.out.println("계속하시려면1, 종료하시려면 0을 입력해주세요.");
-		int number = input.nextInt();
+		int number = Register.input.nextInt();
 		if( number < 0 || number > 1) {
 			System.out.println("음수이거나 1이상이면 에러입니다.");
 		}
@@ -61,7 +58,7 @@ public class HaksaProject {
 		}else if(cnt==3) {
 			deleteObj.delete();
 			System.out.println("계속하시려면 1, 종료하세려면 0을 입력하세요.");
-			int number = input.nextInt();
+			int number = Register.input.nextInt();
 			if( number < 0 || number > 1) {
 				System.out.println("음수이거나 1이상이면 에러입니다.");
 			}
@@ -74,7 +71,7 @@ public class HaksaProject {
 		}else if(cnt==4) {
 			listObj.list();
 			System.out.println("계속 등록 1, 종료하시려면 0을 입력해주세요");
-			int number = input.nextInt();
+			int number = Register.input.nextInt();
 			if( number < 0 || number > 1) {
 				System.out.println("음수이거나 1이상이면 에러입니다.");
 			}
@@ -92,7 +89,7 @@ public class HaksaProject {
 		}else if(cnt==5) {//수정 시작 
 				updateObj.update();
 				System.out.println("계속하시려면1, 종료하시려면 0을 입력해주세요.");
-				int number = input.nextInt();
+				int number = Register.input.nextInt();
 				if( number < 0 || number > 1) {
 					System.out.println("음수이거나 1이상이면 에러입니다.");
 				}

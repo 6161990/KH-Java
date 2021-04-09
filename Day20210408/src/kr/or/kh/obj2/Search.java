@@ -12,8 +12,14 @@ public class Search {
 		 System.out.println("찾을이름을 입력해주세요.");
 	     System.out.println("이름:");
 	     nameSearch = Register.input.next();
+	     if(nameSearch==null || nameSearch=="") {
+	    	 System.out.println("null이거나 공백입니다.");
+	     }
 	     System.out.println("학생, 교수, 관리자 중 입력하세요.");
 	     object = Register.input.next();
+	     if(object==null || object=="") {
+	    	 System.out.println("null이거나 공백입니다.");
+	     }
 	}
 	
 	public void search() {//검색함수의시작

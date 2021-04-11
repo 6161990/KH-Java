@@ -9,7 +9,7 @@ package kr.or.kh.obj4;
 //입력받는 Scanner input 전부 예외 처리 예외클래스 8개 생성
 //[Register],[Search],[Delete],[List],[Update] 의 메소드들 Haksa클래스에 넘겨 상속
 //상속관계였던 Haksa와 다른 클래스들 관계 전환 -> 클래스 안에 Haksa 포함관계 인스턴스 생성-> 참조변수로 메소드, 변수 호출 변경
-//추상클래스 만들기. 강제 메서드 선언해놓고 구현클래스에서 오버라이드.
+//추상클래스 만들기. 강제 메서드 선언해놓고 구현클래스에서 오버라이드
 public class HaksaProject {
 
 	public static void main(String[] args) {

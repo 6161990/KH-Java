@@ -7,7 +7,7 @@ package kr.or.kh.obj3;
 //HaksaProject 내에서 Haksa 인스턴스 제거, 그 자리에 만든 5개의 객체들 생성
 //학생, 교수, 관리자 클래스 따로 생성 
 //입력받는 Scanner input 전부 예외 처리 예외클래스 8개 생성
-//[Register],[Search],[Delete],[List],[Update] 의 메소드들 Haksa클래스에 넘겨 상속
+//[Register],[Search],[Delete],[List],[Update] 의 메소드들 Haksa클래스에 넘겨 상속받아사용
 //상속관계였던 Haksa와 다른 클래스들 관계 전환 -> 클래스 안에 Haksa 포함관계 인스턴스 생성-> 참조변수로 메소드, 변수 호출 변경
 
 public class HaksaProject {

@@ -28,7 +28,7 @@ public class Delete extends Haksa{
  		  }  
  		  
  		  else if(haksa.object.equals("교수")) {
- 			  for(int i=0; i<Haksa.studentList.size(); i++) {
+ 			  for(int i=0; i<Haksa.professorList.size(); i++) {
  				  ProfessorDTO professor = Haksa.professorList.get(i);
  				  if(haksa.nameDelete.equals(professor.getName())) {
  					  professorDelete(i,professor);

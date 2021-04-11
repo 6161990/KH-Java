@@ -149,40 +149,6 @@ public class Update {
 	     }
 	}
 	
-	public void updateStudent(StudentDTO student, int i) {
-		student.setAge(age);
-		student.setName(name);
-		student.setStudentNum(studentNum);
-        student.setObject("학생");
-        Register.studentList.set(i, student);
-	}
-	public void updateProfessor(ProfessorDTO professor, int i) {
-		professor.setAge(age);
-		professor.setName(name);
-		professor.setSubject(subject);
-		professor.setObject("교수");
-        Register.professorList.set(i, professor);
-	}
-	public void updateManage(ManageDTO manage, int i) {
-		manage.setAge(age);
-		manage.setName(name);
-		manage.setPart(part);
-		manage.setObject("관리자");
-        Register.manageList.set(i, manage);
-	}
-	
-	public void updateAgeName() throws HaksaAgeException, HaksaNameException {
-		System.out.println("나이:");
-        age = Register.input.next();
-        if(age == null || age == "") {
-        	throw new HaksaAgeException("나이가 null이거나 공백입니다.");
-	     }
-        System.out.println("이름:");
-        name = Register.input.next();
-        if(name == null || name == "") {
-        	   throw new HaksaNameException("이름이 null이거나 공백입니다.");
-	     }
-	}
 	public void updateRegister(int cnt) throws StudentNumException, ProfessorSubjectException, ManagePartException {
 		if(cnt==1) {
 			try {
@@ -226,6 +192,43 @@ public class Update {
 		}
 	}
 	
+
+	
+	public void updateAgeName() throws HaksaAgeException, HaksaNameException {
+		System.out.println("나이:");
+        age = Register.input.next();
+        if(age == null || age == "") {
+        	throw new HaksaAgeException("나이가 null이거나 공백입니다.");
+	     }
+        System.out.println("이름:");
+        name = Register.input.next();
+        if(name == null || name == "") {
+        	   throw new HaksaNameException("이름이 null이거나 공백입니다.");
+	     }
+	}
+	
+	public void updateStudent(StudentDTO student, int i) {
+		student.setAge(age);
+		student.setName(name);
+		student.setStudentNum(studentNum);
+        student.setObject("학생");
+        Register.studentList.set(i, student);
+	}
+	public void updateProfessor(ProfessorDTO professor, int i) {
+		professor.setAge(age);
+		professor.setName(name);
+		professor.setSubject(subject);
+		professor.setObject("교수");
+        Register.professorList.set(i, professor);
+	}
+	public void updateManage(ManageDTO manage, int i) {
+		manage.setAge(age);
+		manage.setName(name);
+		manage.setPart(part);
+		manage.setObject("관리자");
+        Register.manageList.set(i, manage);
+	}
+	
 	public void updateDisplay(int cnt) {
 		if(cnt==1) {
 		 System.out.println("학생이수정되었습니다.");
@@ -236,4 +239,7 @@ public class Update {
 		}
 	}
 	
+
+
+
 }

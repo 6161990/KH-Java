@@ -61,12 +61,12 @@ public class HaksaProject {
 			}
 		} catch (HaksaMenuException e) {
 			e.printStackTrace();
-			continue;
+			continue; //1 이외의 값 입력했다해도 프로그램 종료가 되면 안되니까 continue;
 		}
 		
 		if(number == 1) {
 			continue;
-		}else {
+		}else {  //0이면 종료
 			System.out.println("프로그램을 종료합니다.");
 			System.exit(0);
 		}

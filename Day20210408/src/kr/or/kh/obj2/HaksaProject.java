@@ -6,7 +6,7 @@ package kr.or.kh.obj2;
 //Register,Search,Delete,List,Update 객체 만들기 , HaksaClass 필요없음 제거
 //HaksaProject 내에서 Haksa 인스턴스 제거, 그 자리에 만든 5개의 객체들 생성
 //학생, 교수, 관리자 클래스 따로 생성 
-
+//예외처리 
 
 public class HaksaProject {
 

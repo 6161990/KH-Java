@@ -296,7 +296,7 @@ public class HaksaProject {
 					System.exit(0);
 				}
 			}
-		}
+		}//수정
 	  }
 	}
 

@@ -535,7 +535,7 @@ public class HaksaFunction {
 						nameDB = rs.getString("name");
 						part = rs.getString("part");
 					}
-					System.out.print("[교수진] 나이: "+age+"\t"+"이름: "+nameDB+"\t"+"담당부서: "+part+"\n");
+					System.out.print("[관리자] 나이: "+age+"\t"+"이름: "+nameDB+"\t"+"담당부서: "+part+"\n");
 					System.out.println("기존 입력한 정보입니다. 변경하십니까? yes/no");
 					String commit = input.next();
 					if(commit.equals("yes")||commit.equals("YES")) {

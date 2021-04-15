@@ -11,8 +11,11 @@ public class HaksaProject {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		//ArrayList<HashMap<String,String>> haksaList = new ArrayList<HashMap<String,String>>();
-		HaksaFunction haksaObj = new HaksaFunction();
+		Register registerObj= new Register();
+		Search searchObj=new Search();
+		Delete deleteObj = new Delete();
+		List listObj=new List();
+		Update updateObj= new Update();
 		while(true) {
 			System.out.println("======메뉴 선택======");
 			System.out.println("1. 등록");
@@ -33,11 +36,11 @@ public class HaksaProject {
 	    	
 	    	
 			if(cnt==1) {
-				haksaObj.Register(cnt, input, conn, stmt);
+				registerObj.register();
 			}//등록
 			
 			else if(cnt==2) { //찾기
-				haksaObj.Search(cnt, input, conn, stmt, rs);
+				searchObj.search();
 				System.out.println("계속하시려면 1, 종료하시려면 0을 입력하세요.");
 				int number = input.nextInt();
 				if(number <0 || number>5) {
@@ -52,7 +55,7 @@ public class HaksaProject {
 			}//찾기
 			
 			else if(cnt==3) {//삭제
-				haksaObj.Delete(cnt, input, conn, stmt);
+				deleteObj.delete();
 					System.out.println("계속하시려면1, 종료하시려면 0을 입력해주세요.");
 					int number = input.nextInt();
 					if(number<0 ||number>1) {
@@ -67,7 +70,7 @@ public class HaksaProject {
 			}//삭제
 	
 			else if(cnt==4) {//전체출력
-				haksaObj.List(cnt, input, conn, stmt, rs);
+				listObj.list();
 				System.out.println("계속하시려면1, 종료하시려면 0을 입력해주세요.");
 				int number = input.nextInt();
 				if(number<0 ||number>1) {
@@ -85,7 +88,7 @@ public class HaksaProject {
 				System.exit(0);
 			}//종료
 			else if(cnt==5) {//수정
-				String result=haksaObj.Update(cnt, input, conn, stmt, rs);
+				String result=updateObj.update();
 				if(result.equals(result)) {
 					continue;
 				}

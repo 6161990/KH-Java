@@ -206,8 +206,8 @@ public class Update {
 	}
 	public void updateRePart() {
 		System.out.println("수정할 부서입력");
-		part= Register.input.next();
-		if(part==null ||part=="") {
+		partUpdate= Register.input.next();
+		if(partUpdate==null ||part=="") {
 			System.out.println("에러");
 		}
 	}

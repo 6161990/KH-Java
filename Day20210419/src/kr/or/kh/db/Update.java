@@ -1,9 +1,7 @@
 package kr.or.kh.db;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 public class Update {
 	private int no;
@@ -46,7 +44,7 @@ public class Update {
 	}
 	
 	
-	public void studentViewDisplay(StudentDTO student) {
+	public void studentViewDisplay() {
 		System.out.print("[학생부] 나이: "+student.getAge()+"\t"+"이름: "+student.getName()+"\t"+"학번: "+student.getStudentNum()+"\n");
 		System.out.println("기존 정보입니다.");
 	}
@@ -56,69 +54,67 @@ public class Update {
 	}
 	
 	
-	//
-/*	public void updateReAgeName() {
-		System.out.println("수정할 나이입력");
-		student.setAge(Register.input.next());
-		//ageUpdate = Register.input.next();
-		if(student.age==null ||student.age=="") {
-			System.out.println("에러");
-		}
-		System.out.println("수정할 이름입력");
-		student.setName(Register.input.next());	
-		//nameDB = Register.input.next();
-		if(student.name==null ||student.name=="") {
-			System.out.println("에러");
-		}
-	}*/
-	
-	 public void updateReAge(String str) {
- 	    if(str.equals("학생")) {
- 	    System.out.println("학생 나이입력:");
+	/*
+	 *  public void updateReAge(String str) {
+    	    if(str.equals("학생")) {
+    	    System.out.println("학생 나이입력:");
 			student.setAge(Register.input.next());			
 			if(student.age==null||student.age=="") {
 					System.out.println("에러");
 				}
- 	    }else if(str.equals("교수")) {
- 	    	System.out.println("교수 나이입력:");
- 			professor.setAge(Register.input.next());			
- 			if(professor.age==null||professor.age=="") {
- 					System.out.println("에러");
- 				}
- 	    }else if(str.equals("관리자")) {
- 	    	System.out.println("관리자 나이입력:");
- 			manage.setAge(Register.input.next());			
- 			if(manage.age==null||manage.age=="") {
- 					System.out.println("에러");
- 				}
- 	    }
- }
-	 public void updateReName(String str) {
- 	    if(str.equals("학생")) {
+    	    }else if(str.equals("교수")) {
+    	    	System.out.println("교수 나이입력:");
+    			professor.setAge(Register.input.next());			
+    			if(professor.age==null||professor.age=="") {
+    					System.out.println("에러");
+    				}
+    	    }else if(str.equals("관리자")) {
+    	    	System.out.println("관리자 나이입력:");
+    			manager.setAge(Register.input.next());			
+    			if(manager.age==null||manager.age=="") {
+    					System.out.println("에러");
+    				}
+    	    }
+    }
+    public void updateReIrum(String str) {
+    	    if(str.equals("학생")) {
 			System.out.println("학생 이름입력:");
-			student.setName(Register.input.next());
-			if(student.name==null||student.name=="") {
+			student.setIrum(Register.input.next());
+			if(student.irum==null||student.irum=="") {
 				System.out.println("에러");
 			  }
- 	    }else if(str.equals("교수")) {
- 	    	System.out.println("교수 이름입력:");
- 			professor.setName(Register.input.next());
- 			if(professor.name==null||professor.name=="") {
- 				System.out.println("에러");
- 			  }
- 	    }else if(str.equals("관리자")) {
- 	    	System.out.println("관리자 이름입력:");
- 			manage.setName(Register.input.next());
- 			if(manage.name==null||manage.name=="") {
- 				System.out.println("에러");
- 			  }
- 	    }    	    
- }
+    	    }else if(str.equals("교수")) {
+    	    	System.out.println("교수 이름입력:");
+    			professor.setIrum(Register.input.next());
+    			if(professor.irum==null||professor.irum=="") {
+    				System.out.println("에러");
+    			  }
+    	    }else if(str.equals("관리자")) {
+    	    	System.out.println("관리자 이름입력:");
+    			manager.setIrum(Register.input.next());
+    			if(manager.irum==null||manager.irum=="") {
+    				System.out.println("에러");
+    			  }
+    	    }    	    
+    }
+	 * */
+	public void updateReAgeName() {
+		System.out.println("수정할 나이입력");
+		ageUpdate = Register.input.next();
+		if(ageUpdate==null ||ageUpdate=="") {
+			System.out.println("에러");
+		}
+		System.out.println("수정할 이름입력");
+		nameDB = Register.input.next();
+		if(nameDB==null ||nameDB=="") {
+			System.out.println("에러");
+		}
+	}
 	public void updateReStudentNum() {
 		System.out.println("수정할 학번입력");
-		student.setStudentNum(Register.input.next());
-		//studentNumUpdate = Register.input.next();
-		if(student.studentNum==null ||student.studentNum=="") {
+	//	student.setHakbun(Register.input.next());
+		studentNumUpdate = Register.input.next();
+		if(studentNumUpdate==null ||studentNumUpdate=="") {
 			System.out.println("에러");
 		}
 	}
@@ -127,7 +123,7 @@ public class Update {
 		if(cnt==1) {
 			System.out.println(cnt+"건의 [학생] 정보가 수정되었습니다.");
 		}else {
-			System.out.println(" 학생 정보 변경을 실패하였습니다.");
+			System.out.println(" 교수 정보 변경을 실패하였습니다.");
 		} 
 	}
 	
@@ -135,8 +131,8 @@ public class Update {
 	
 	//교수시작
 	
-	public void professorViewDisplay(ProfessorDTO professor) {
-		System.out.print("[교수진] 나이: "+professor.getAge()+"\t"+"이름: "+nameDB+"\t"+"담당과목: "+professor.getSubject()+"\n");
+	public void professorViewDisplay() {
+		System.out.print("[교수진] 나이: "+professor.getAge()+"\t"+"이름: "+professor.getName()+"\t"+"담당과목: "+professor.getSubject()+"\n");
 		System.out.println("기존 정보입니다.");
 	}
 	public void updateReSubject() {
@@ -161,8 +157,8 @@ public class Update {
 	
 	
 	
-	public void manageViewDisplay(ManageDTO manage) {
-		System.out.print("[관리자] 나이: "+manage.getAge()+"\t"+"이름: "+nameDB+"\t"+"담당부서: "+manage.getPart()+"\n");
+	public void manageViewDisplay() {
+		System.out.print("[관리자] 나이: "+manage.getAge()+"\t"+"이름: "+manage.getPart()+"\t"+"담당부서: "+manage.getPart()+"\n");
 		System.out.println("기존 정보입니다.");
 	}
 	public void updateRePart() {
@@ -187,24 +183,24 @@ public class Update {
 		 nameUpdate();
 		 objectUpdate();
 			try {
-				 	if(object.equals("학생")) {
+				 	if(object.equals("학생")) {	 
 					 updateDAO.studentUpdate(nameUpdate);
-					 updateDAO.studentExecute();
+					 student=updateDAO.studentExecute();
 					 if(nameUpdate.equals(student.getName())) {//
-						 System.out.println("3");
 						 updateDAO.studentUpdateView(nameUpdate);
 						 updateDAO.studentExecuteView();
-						 studentViewDisplay(student);						 
+						 studentViewDisplay();
 						 commitFinal();
 						 if(commit.equals("yes")||commit.equals("YES")) {
-							 updateReAge("학생");
-							 updateReName("학생");
-							 
+							// updateReAge("학생");
+							// updateReIrum("학생");
+							 updateReAgeName();
 							 updateReStudentNum();
-							 updateDAO.updateStudentFinal(student,nameUpdate);
+							 
+							 //updateDAO.updateStudentFinal(student,irumUpdate); 	
+							 updateDAO.updateStudentFinal(ageUpdate,nameDB,studentNumUpdate,nameUpdate);
 							 cnt=updateDAO.updateStudentExecute();
 							 updateStudentDisplay(cnt);
-							
 							 result="continue";
 						 }else {
 							result="continue";
@@ -213,17 +209,16 @@ public class Update {
 				 }//학생수정
 				 	else if(object.equals("교수")) {//교수수정
 				 		updateDAO.ProfessorUpdate(nameUpdate);	 		
-				 		updateDAO.professorExecute();
+				 		professor=updateDAO.professorExecute();
 				 		if(nameUpdate.equals(professor.getName())) {//
 				 			updateDAO.professorUpdateView(nameUpdate);
 				 			updateDAO.professorExecuteView();
-				 			professorViewDisplay(professor);
+				 			professorViewDisplay();
 				 			commitFinal();
 					 		if(commit.equals("yes")||commit.equals("YES")) {
-					 			updateReAge("교수");
-								 updateReName("교수");
+					 			updateReAgeName();
 					 			updateReSubject();
-					 			updateDAO.updateProfessorFinal(professor, nameUpdate);
+					 			updateDAO.updateProfessorFinal(ageUpdate,nameDB,subjectUpdate,nameUpdate);
 								cnt=updateDAO.updateProfessorExecute();
 								updateProfessorDisplay(cnt);
 								result="continue";
@@ -233,20 +228,18 @@ public class Update {
 				 		}
 				 }//교수수정
 				 	else if(object.equals("관리자")) {//관리자수정
-				 		updateDAO.manageUpdate();
-				 		updateDAO.manageExecute();
-				 		if(nameUpdate.equals(nameDB)) {//
-				 			updateDAO.manageUpdateView();
+				 		updateDAO.manageUpdate(nameUpdate);
+				 		manage=updateDAO.manageExecute();
+				 		if(nameUpdate.equals(manage.getName())) {//
+				 			updateDAO.manageUpdateView(nameUpdate);
 				 			updateDAO.manageExecuteView();
-				 			manageViewDisplay(manage);
+				 			manageViewDisplay();
 				 			commitFinal();
 				 				if(commit.equals("yes")||commit.equals("YES")) {
-				 					//updateReAgeName();
-				 					updateReAge("교수");
-									 updateReName("교수");
+				 					updateReAgeName();
 				 					updateRePart();
-				 					updateDAO.updateManageFinal(manage, nameUpdate);
-				 					updateDAO.updateManageExecute();
+				 					updateDAO.updateManageFinal(ageUpdate,nameDB,partUpdate,nameUpdate);
+				 					cnt=updateDAO.updateManageExecute();
 				 					updateManageDisplay(cnt);
 				 					result="continue";
 				 				}else {

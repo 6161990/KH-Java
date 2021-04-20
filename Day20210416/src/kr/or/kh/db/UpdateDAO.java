@@ -60,7 +60,7 @@ public class UpdateDAO {
 		}
 		
 		public void updateStudentFinal() throws SQLException {
-			sql ="update student set age='"+ageUpdate+"', name='"+nameDB+"',studentNum='"+studentNumUpdate+"' where name='"+nameUpdate+"'";
+		//	sql ="update student set age='"+ageUpdate+"', name='"+nameDB+"',studentNum='"+studentNumUpdate+"' where name='"+nameUpdate+"'";
 			stmt=conn.createStatement();
 		}
 		public int updateStudentExecute() throws SQLException {
@@ -96,7 +96,7 @@ public class UpdateDAO {
 			}
 		}
 		public void updateProfessorFinal() throws SQLException {
-			sql ="update professor set age='"+ageUpdate+"', name='"+nameDB+"',subject='"+subjectUpdate+"' where name='"+nameUpdate+"'";
+		//	sql ="update professor set age='"+ageUpdate+"', name='"+nameDB+"',subject='"+subjectUpdate+"' where name='"+nameUpdate+"'";
 			stmt=conn.createStatement();
 		}
 		public int updateProfessorExecute() throws SQLException {
@@ -133,7 +133,7 @@ public class UpdateDAO {
 		}
 		
 		public void updateManageFinal() throws SQLException {
-			sql ="update manage set age='"+ageUpdate+"', name='"+nameDB+"',part='"+partUpdate+"' where name='"+nameUpdate+"'";
+	//		sql ="update manage set age='"+ageUpdate+"', name='"+nameDB+"',part='"+partUpdate+"' where name='"+nameUpdate+"'";
 			stmt=conn.createStatement();
 		}
 		public int updateManageExecute() throws SQLException {

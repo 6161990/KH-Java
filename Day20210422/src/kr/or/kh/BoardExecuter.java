@@ -29,15 +29,11 @@ public class BoardExecuter {
 			e.printStackTrace();
 		}
 		if(protocol.equals("R")||protocol.equals("r")) {//등록
-			//					0 1234
 			System.out.println("제목|내용입력:");
 			String titleContent = input.next();
 			int indexI = titleContent.indexOf("|");
-			//System.out.println(indexI);
 			String title = titleContent.substring(0,indexI);
 			String content = titleContent.substring(indexI+1);
-			//System.out.println(title);
-			//System.out.println(content);
 			System.out.println("작성자 : ");
 			String author=input.next();
 			System.out.println("날짜 : ");
@@ -84,6 +80,12 @@ public class BoardExecuter {
 					nal=rs.getString("nal");
 					readcount=rs.getString("readcount");
 				}
+				int readcountUpdate=Integer.parseInt(readcount);//조회수 증가위해 가져오기 
+				readcountUpdate++;
+				readcount=String.valueOf(readcountUpdate);
+				stmt = conn.createStatement();
+				sql = "update board set readcount='"+readcount+"' where title='"+titleSearch+"'";
+				cnt=stmt.executeUpdate(sql);
 				System.out.println("검색결과: ");
 				System.out.println("제목\t내용\t작성자\t날짜\t조회수");
 				System.out.println(title+"\t"+content+"\t"+author+"\t"+nal+"\t"+readcount+"\n");
@@ -153,20 +155,22 @@ public class BoardExecuter {
 			System.out.println("yes/no");
 			String commit = input.next();
 			if(commit.equals("yes")||commit.equals("YES")) {
-				System.out.println("제목|내용입력:");
-				String titleContentUpdate = input.next();
-				int indexI = titleContentUpdate.indexOf("|");
-				String titleUpdateFinal = titleContentUpdate.substring(0,indexI);
-				String contentUpdate = titleContentUpdate.substring(indexI+1);
-				System.out.println("작성자 : ");
-				String authorUpdate=input.next();
-				System.out.println("날짜 : ");
-				String nalUpdate = input.next();
-				System.out.println("조회수 : ");
-				String readcountUpdate = input.next();
+				System.out.println("수정할 제목|내용 :");
+				String titleContent = input.next();
+				int indexI = titleContent.indexOf("|");
 				try {
+					String titleUpdateFinal = titleContent.substring(0,indexI);
+					String contentUpdateFinal = titleContent.substring(indexI+1);
+					/*System.out.println("작성자 : ");
+					String authorUpdate=input.next();
+					System.out.println("날짜 : ");
+					String nalUpdate = input.next();
+					System.out.println("조회수 : ");
+					String readcountUpdate = input.next();*/
+				
 					stmt = conn.createStatement();
-					sql ="insert into board (no,title,content,author,nal,readcount) values(board_seq.nextval,'"+titleUpdateFinal+"','"+contentUpdate+"','"+authorUpdate+"','"+nalUpdate+"','"+readcountUpdate+"')";
+					//sql ="update into board (no,title,content,author,nal,readcount) values(board_seq.nextval,'"+titleUpdateFinal+"','"+contentUpdate+"','"+authorUpdate+"','"+nalUpdate+"','"+readcountUpdate+"')";
+					sql ="update board set title='"+titleUpdateFinal+"', content='"+contentUpdateFinal+"' where title='"+titleUpdate+"'";
 					cnt=stmt.executeUpdate(sql);
 					if(cnt==1) {
 						System.out.println("게시글이 수정되었습니다.");
@@ -179,6 +183,7 @@ public class BoardExecuter {
 					try {
 						conn.close();
 						stmt.close();
+						rs.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}

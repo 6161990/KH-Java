@@ -25,7 +25,11 @@ public class Register {
 		
 	}
 	public Register() { //인스턴스 변수를 초기화하는 생성자 함수
-		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	public void setTitleContent() {
 		System.out.println("제목|내용입력:");

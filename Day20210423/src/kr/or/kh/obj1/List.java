@@ -17,9 +17,13 @@ public class List {
 	private String title;
 	private String readcount;
 	
+	public List() {
+
+	}
+	
 	public void setListTitle() {
 		System.out.println("=====전체출력=====");
-		System.out.print("제목\t내용\t작성자\t날짜\t조회수\n");
+		System.out.print("제목\t 내용\t\t작성자\t   날짜\t 조회수 \n");
 	}
 	public void statementSqlList() throws SQLException {
 		stmt=conn.createStatement();
@@ -44,7 +48,7 @@ public class List {
 				author=rs.getString("author");
 				nal =rs.getString("nal");
 				readcount=rs.getString("readcount");
-				System.out.print(title+"\t"+content+"\t"+author+"\t"+nal+"\t"+readcount+"\n");
+				System.out.print(title+"\t "+content+"\t "+author+"\t "+nal+"\t   "+readcount+"\n");
 			}
 			System.out.println();
 		} catch (SQLException e) {

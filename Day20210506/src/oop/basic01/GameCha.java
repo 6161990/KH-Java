@@ -7,6 +7,8 @@ public class GameCha {
 	private int level;
 	private int money;
 	private int engage;
+//	private int engage=0;???
+	
 	
 	
 	public GameCha(String id, String job) {

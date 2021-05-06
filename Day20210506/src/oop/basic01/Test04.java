@@ -6,6 +6,7 @@ public class Test04 {
 		GameCha cha1 = new GameCha("파워전사","궁수");
 		cha1.setLevel(2);
 		cha1.setMoney(1000);
+		cha1.setEngage(30);
 		cha1.print();
 		
 		

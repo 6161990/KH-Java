@@ -120,7 +120,7 @@ public class GameCha {
 	}
 
 
-	public void setEngage(int engage) {
+	public final void setEngage(int engage) {
 		
 		if(engage > 100) {
 			System.out.println("[오류: 게이지는 100까지만 채우면 자동 레벨업됩니다.]");

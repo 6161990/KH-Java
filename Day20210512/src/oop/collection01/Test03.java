@@ -9,6 +9,7 @@ public class Test03 {
 	public static void main(String[] args) {
 		Random random = new Random();
 		List<Integer> lottoList = new ArrayList<>();
+		
 		for(int i=1; i<=45; i++) {
 			lottoList.add(i);
 		}
@@ -18,7 +19,7 @@ public class Test03 {
 		for(int i=0; i<6; i++) {
 			int index = random.nextInt(lottoList.size())+0;
 			int num =lottoList.get(index);
-			lottoList.remove(index);
+			lottoList.remove(index); //중복제거 
 			System.out.println(num);
 		}
 	}

@@ -25,7 +25,7 @@ public class Test04 {
 		Collections.sort(cut);
 		System.out.println(cut);
 		
-		//0번 위치부터 7개 뽑아온다
+		//0번 위치부터 6개 뽑아온다
 		for(int i=0; i<6; i++) {
 			System.out.print(lotto.get(i)+" ");
 		}

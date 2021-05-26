@@ -8,6 +8,7 @@ import java.io.IOException;
 public class Test09 {
 
 	public static void main(String[] args) throws IOException {
+		
 		File origin = new File("kh","origin.kh");
 		FileInputStream in = new FileInputStream(origin);
 		

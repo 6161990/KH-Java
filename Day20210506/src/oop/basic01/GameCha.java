@@ -12,7 +12,7 @@ public class GameCha {
 	
 	
 	public GameCha(String id, String job) {
-		//this(id,job,1,0);
+		///this(id,job,1,0);
 		this.id = id;
 		this.setJob(job);
 	}

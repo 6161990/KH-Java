@@ -14,6 +14,7 @@ public class Hero {
 	public String toString() {
 		return "Hero [name=" + name + ", hp=" + hp + "]";
 	}
+	
 	public static void main(String[] args) {
 		Hero h1 = new Hero("김윤지",100);
 		System.out.println(h1);

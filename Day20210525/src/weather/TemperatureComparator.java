@@ -7,7 +7,6 @@ import java.util.Date;
 
 public class TemperatureComparator implements Comparator<String[]>{
 
-	
 	@Override
 	public int compare(String[] s1, String[] s2) {
 		int maxTemp1 = (int)(Double.parseDouble(s1[1])*10);
@@ -29,11 +28,11 @@ public class TemperatureComparator implements Comparator<String[]>{
 				int avgTemp1 = (int)(Double.parseDouble(s1[3])*10);
 				int avgTemp2 = (int)(Double.parseDouble(s2[3])*10);
 				if(avgTemp1 < avgTemp2) {
-					return -1;
-				}else if(avgTemp1 > avgTemp2) {
 					return 1;
+				}else if(avgTemp1 > avgTemp2) {
+					return -1;
 				}else {
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 					try {
 						Date date1 = sdf.parse(s1[0]);
 						Date date2 = sdf.parse(s2[0]);
@@ -50,9 +49,6 @@ public class TemperatureComparator implements Comparator<String[]>{
 				}
 			}
 		}
-                  
-		
-		
 		return 0;
 	}
 }

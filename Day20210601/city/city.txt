@@ -1,0 +1,5 @@
+GOYANG 고양
+BUSAN 부산
+SEOUL 서울
+DAEGU 대구
+JEONJU 전주

@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="jasonkim">
+    <title>입력폼 샘플</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="images/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="images/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="images/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="images/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- 기본 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vendors.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- 사용자용 CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+	
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div><!-- /Preload -->
+
+	<div class="container-fluid p-0">
+	    <div class="row no-gutters row-height">
+	        <div class="col-lg-6 background-image" data-background="url(images/bg.jpg)">
+	            <div class="content-left-wrapper opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
+	                <a href="#0" id="logo"><img src="images/logo.png" alt="" width="46" height="40"></a>
+	                <div id="social">
+	                    <ul>
+	                        <li><a href="#0"><i class="social_facebook"></i></a></li>
+	                        <li><a href="#0"><i class="social_twitter"></i></a></li>
+	                        <li><a href="#0"><i class="social_instagram"></i></a></li>
+	                    </ul>
+	                </div>
+	                <!-- /social -->
+	                <div>
+	                    <h1>파일첨부 입력양식 예제</h1>
+	                    <p>동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.</p>
+	                    
+	                </div>
+	            </div>
+	        </div>
+	        <div class="col-lg-6 d-flex flex-column content-right">
+	            <div class="container my-auto py-5">
+	                <div class="row">
+	                    <div class="col-lg-9 col-xl-7 mx-auto">
+	                        <form action="fileAttch" class="input_style_1" method="post" enctype="multipart/form-data">
+	                        	<div class="form-group">
+	                                <label for="full_name">이름</label>
+	                                <input type="text" name="full_name" id="full_name" class="form-control">
+	                            </div>
+	                            <div class="form-group">
+	                                <label for="email_address">이메일주소</label>
+	                                <input type="email" name="email_address" id="email_address" class="form-control">
+	                            </div>
+								<div class="form-group">
+	                            	<label for="message_field">메시지</label>
+	                            	<textarea name="message_field" id="message_field" class="form-control" style="height: 150px"></textarea>
+	                            </div>
+	                            <div class="form-group mb-4">
+								    <div class="info">
+								        <h6>파일첨부<a href="#0" data-toggle="tooltip" data-placement="top" title="<strong>파일종류:<br></strong>gif,jpg,jpeg,png,pdf,doc,docx. 최대파일크기: 150k" class="tooltip-1"><i class="icon_question_alt"></i></a></h6>
+								    </div>
+								    <div class="fileupload">
+								        <input type="file" name="fileupload" accept="image/*,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+								    </div>
+								</div>
+	                            <div class="form-group terms mb-4">
+								    <label class="container_check"> <a href="#" data-toggle="modal" data-target="#terms-txt">이용약관</a>을 동의합니다.
+								        <input type="checkbox" name="agree" id="agree">
+								        <span class="checkmark"></span>
+								    </label>
+								</div>
+	                            <button type="submit" class="btn_1 full-width">보내기</button>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="container pb-3 copy">© 2021 Jason Jaewoo, Kim</div>
+	        </div>
+	    </div>
+	    <!-- /row -->
+	</div>
+	<!-- /container -->
+
+	<!-- 이용약관 모달창 -->
+	<div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="termsLabel">이용약관</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.</p>
+					<p>동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.</p>
+					<p>동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn_1" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	<!-- 공통 SCRIPTS -->
+    <script src="js/common_scripts.js"></script>
+	<script src="js/common_func.js"></script>
+
+</body>
+</html>

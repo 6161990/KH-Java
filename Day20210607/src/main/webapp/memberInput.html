@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>입력양식</title>
+    <link rel="stylesheet" href="./css/skyblue.css" />
+    <link rel="stylesheet" href="./css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="./css/helper.css" />
+  </head>
+  <body>
+    <div class="bg-success padding-y-5">
+      <div class="container padding-y-5 text-center">
+        <strong>회원가입 입력양식</strong>
+      </div>
+    </div>
+    <div class="padding-y-5">
+      <div style="width: 40%" class="container padding-y-5">
+        <form action="mInput" method="get">
+          <table border="1" class="table">
+            <tr>
+              <th>
+                <label for="userName"
+                  ><span class="icon-smile pe-2x pe-va"></span> 사용자명</label
+                >
+              </th>
+              <td>
+                <input
+                  type="text"
+                  name="userName"
+                  id="userName"
+                  class="form-control"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="pass"
+                  ><span class="icon-note pe-2x pe-va"></span> 비밀번호</label
+                >
+              </th>
+              <td>
+                <input
+                  type="password"
+                  name="pass"
+                  id="pass"
+                  class="form-control"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th><span class="icon-users pe-2x pe-va"></span> 설명</th>
+              <td>
+                <label class="fancy-radio"
+                  ><input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    checked
+                  /><span>남</span></label
+                >
+                <label class="fancy-radio"
+                  ><input type="radio" name="gender" value="female" /><span
+                    >여</span
+                  ></label
+                >
+              </td>
+            </tr>
+            <tr>
+              <th><span class="icon-joy pe-2x pe-va"></span> 취미</th>
+              <td>
+                <label class="fancy-checkbox"
+                  ><input type="checkbox" name="hobby" value="book" /><span
+                    >독서</span
+                  ></label
+                >
+                <label class="fancy-checkbox"
+                  ><input type="checkbox" name="hobby" value="music" /><span
+                    >음악감상</span
+                  ></label
+                >
+                <label class="fancy-checkbox"
+                  ><input type="checkbox" name="hobby" value="travel" /><span
+                    >여행</span
+                  ></label
+                >
+              </td>
+            </tr>
+            <tr>
+              <th><span class="icon-bandaid pe-2x pe-va"></span> 혈액형</th>
+              <td>
+                <select name="blood" class="form-control">
+                  <option value="A">A형</option>
+                  <option value="B">B형</option>
+                  <option value="O">O형</option>
+                  <option value="AB">AB형</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th><span class="icon-note2 pe-2x pe-va"></span> 비고</th>
+              <td>
+                <textarea
+                  rows="5"
+                  cols="20"
+                  name="remarks"
+                  class="form-control"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-right">
+                <input type="submit" value="등록" class="btn" />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.DataManager;
+import dao.DataManagerBefore;
 import dto.SnsDTO;
 import dto.UserDTO;
 
@@ -19,7 +19,7 @@ import dto.UserDTO;
 @WebServlet("/board")
 public class BoardServlet extends HttpServlet {
 	
-	private DataManager dbm; //로그인 사용자정보 쓰기 관련 클래스
+	private DataManagerBefore dbm; //로그인 사용자정보 쓰기 관련 클래스
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,7 +42,7 @@ public class BoardServlet extends HttpServlet {
 			
 			//한번만 DataManager객체생성
 			if(dbm == null) {
-				dbm = new DataManager();
+				dbm = new DataManagerBefore();
 			}
 			
 			//로그인 사용자 정보와 기록 내용을 인수목록에 추가하는 메소드

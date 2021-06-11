@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.DataManager;
+import dao.DataManagerBefore;
 import dto.SnsDTO;
 import dto.UserDTO;
 
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}else {
 			// 로그인 인증하고 사용자 정보를 얻음
-			DataManager dbm = new DataManager();
+			DataManagerBefore dbm = new DataManagerBefore();
 			UserDTO user = dbm.getLoginUser(loginId, password);
 			if(user != null) {
 				//사용자정보 얻을 수 있으면 입력한 내용 목록을 가져옴
